@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './CostForm.css';
-const CostForm = () =>{
+const CostForm = (props) =>{
   const [name, setName] = useState('')
   const nameChangeHandler = (e) =>{
       setName(e.target.value);
@@ -21,6 +21,7 @@ const CostForm = () =>{
         amount : sum,
         date : new Date(date),
       }
+      props.onSaveCostData(costData);
       setName('');
       setSum('');
       setDate('');
